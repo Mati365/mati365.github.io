@@ -1,0 +1,19 @@
+---
+interface Props {
+  name: string;
+  color: string;
+}
+
+const { name, color } = Astro.props;
+---
+
+<div
+  class="flex justify-center items-center border-gray-200 hover:border-[var(--hover-border)] hover:bg-[var(--hover-bg)] p-1.5 border rounded-lg w-10 transition-colors aspect-square group"
+  title={name}
+  style={{
+    '--hover-bg': `${color}1A`,
+    '--hover-border': color
+  }}
+>
+  <slot />
+</div>

@@ -1,0 +1,24 @@
+---
+import avatarUrl from '~/assets/avatar.jpg'
+import SidebarTechSection from './sidebar-tech-section.astro'
+import SidebarInfoSection from './sidebar-info-section.astro'
+---
+
+<aside class="w-[296px]">
+  <div class="mb-4">
+    <img
+      src={avatarUrl.src}
+      alt="Profile avatar"
+      class="border-gray-200 mx-auto border rounded-full w-52 aspect-square"
+    />
+  </div>
+
+  <div>
+    <h1 class="mb-1 font-semibold text-2xl leading-tight">Mateusz Bagiński</h1>
+    <div class="mb-3 text-gray-500">Mati365</div>
+    <p class="mb-4 text-gray-600 text-sm italic">"Just another programmer trying to make computers do cool stuff while avoiding infinite loops in both code and life."</p>
+
+    <SidebarInfoSection />
+    <SidebarTechSection />
+  </div>
+</aside>
