@@ -1,0 +1,24 @@
+---
+import ProjectBar from './project-bar.astro';
+import type { ExperienceItem } from './types';
+
+interface Props {
+  year: number;
+  experience: ExperienceItem[];
+}
+
+const { year, experience } = Astro.props;
+---
+
+<tr class="min-h-[3.5rem]">
+  <td class="border-gray-200 py-4 pr-6 border-r font-light text-gray-600 text-sm align-middle">
+    {year}
+  </td>
+  <td class="relative py-4 pl-4 h-14">
+    <div class="relative h-11">
+      {experience.map((experience) => (
+        <ProjectBar year={year} experience={experience} />
+      ))}
+    </div>
+  </td>
+</tr>

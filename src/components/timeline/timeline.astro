@@ -1,0 +1,95 @@
+---
+import ckLogo from '~/assets/companies/cksource.png';
+
+import TimelineYear from './timeline-year.astro';
+import type { ExperienceItem } from './types';
+
+function parseDate(date: string): Date {
+  if (date === 'present') return new Date();
+  const [day, month, year] = date.split('.').map(Number);
+  return new Date(year, month - 1, day);
+}
+
+const companies = [
+  {
+    title: "Senior Fullstack Engineer",
+    company: {
+      name: 'CKSource',
+      logo: ckLogo.src,
+      color: {
+        primary: '#771bff',
+        background: '#771bff',
+        text: '#ffffff'
+      }
+    },
+    duration: {
+      begin: parseDate("01.02.2024"),
+      end: null
+    },
+    details: "Contributing to CKEditor 5...",
+    items: [
+      "Fixing accessibility A11y WCAG issues...",
+      // ... more items
+    ],
+    color: "#771bff" // purple
+  },
+  // Przykład jak zmienić kolory dla innych firm:
+  // {
+  //   ...
+  //   color: "#f97316" // orange
+  // },
+  // {
+  //   ...
+  //   color: "#a855f7" // purple
+  // }
+] as ExperienceItem[];
+
+const years = Array.from(
+  { length: 10 },
+  (_, i) => new Date().getFullYear() - i
+).reverse();
+
+const getExperienceForYear = (year: number) =>
+  companies.filter(({ duration }) => {
+    const projectYear = duration.begin.getFullYear();
+    const endYear = duration.end?.getFullYear() ?? new Date().getFullYear();
+    return projectYear <= year && endYear >= year;
+  });
+---
+
+<div class="mt-6 pt-4">
+  <h2 class="mb-6 font-semibold text-2xl text-gray-900">Experience</h2>
+
+  <table class="border-collapse [&_td]:border-gray-100 [&_td]:border-t w-full">
+    <thead>
+      <tr>
+        <th class="border-gray-200 pr-6 border-r w-20"></th>
+        <th class="pl-4 text-left">
+          <div class="flex justify-between pb-2 text-gray-500 text-xs">
+            {['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'].map(month => (
+              <span>{month}</span>
+            ))}
+          </div>
+        </th>
+      </tr>
+    </thead>
+    <tbody>
+      {years.map((year) => (
+        <TimelineYear
+          year={year}
+          experience={getExperienceForYear(year)}
+        />
+      ))}
+    </tbody>
+  </table>
+</div>
+
+<script>
+  document.querySelectorAll('.project-bar').forEach(bar => {
+    bar.addEventListener('click', () => {
+      const details = bar.getAttribute('data-details');
+      // Możesz tutaj użyć własnej implementacji modala/tooltipa
+      alert(details);
+    });
+  });
+</script>
