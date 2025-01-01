@@ -2,7 +2,7 @@
 import Sidebar from '~/components/about-me/sidebar.astro';
 import DefaultLayout from '../layouts/default-layout.astro';
 import Timeline from '~/components/timeline/timeline.astro';
-
+import AboutMe from '~/components/about-me/about-me.astro';
 ---
 
 <DefaultLayout
@@ -13,6 +13,7 @@ import Timeline from '~/components/timeline/timeline.astro';
 		<Sidebar />
 
 		<div class="flex-1">
+			<AboutMe />
 			<Timeline />
 		</div>
 	</div>

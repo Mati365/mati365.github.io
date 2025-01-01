@@ -1,0 +1,34 @@
+---
+import answearLogo from "~/assets/clients/answear.jpg";
+import cksourceLogo from "~/assets/clients/ckeditor.svg";
+import croppLogo from "~/assets/clients/cropp.jpg";
+import houseLogo from "~/assets/clients/house.png";
+import interiaLogo from "~/assets/clients/interia.png";
+import mohitoLogo from "~/assets/clients/mohito.png";
+import reservedLogo from "~/assets/clients/reserved.png";
+import sinsayLogo from "~/assets/clients/sinsay.png";
+
+const logos = [
+  { src: answearLogo.src, alt: "Answear" },
+  { src: interiaLogo.src, alt: "Interia" },
+  { src: croppLogo.src, alt: "Cropp" },
+  { src: houseLogo.src, alt: "House" },
+  { src: mohitoLogo.src, alt: "Mohito" },
+  { src: reservedLogo.src, alt: "Reserved" },
+  { src: sinsayLogo.src, alt: "Sinsay" },
+  { src: cksourceLogo.src, alt: "CKSource" },
+];
+---
+
+<div class="gap-4 grid grid-cols-2 md:grid-cols-6">
+  {logos.map((logo) => (
+    <div class="flex justify-center items-center p-4 border rounded-lg">
+      <img
+        src={logo.src}
+        alt={logo.alt}
+        class="w-full h-full transition-all grayscale hover:grayscale-0 object-contain"
+        loading="lazy"
+      />
+    </div>
+  ))}
+</div>
