@@ -2,52 +2,98 @@
 import TimelineYear from './timeline-year.astro';
 import { COMPANIES } from './experience';
 
+const oldestYear = Math.min(...COMPANIES.map(company => company.duration.begin.getFullYear()));
 const years = Array.from(
-  { length: 10 },
-  (_, i) => new Date().getFullYear() - i
-).reverse();
+  { length: 2025 - oldestYear + 1 },
+  (_, i) => oldestYear + i
+).toReversed();
 
+const totalExperience = new Date().getFullYear() - oldestYear;
 const getExperienceForYear = (year: number) =>
   COMPANIES.filter(({ duration }) => {
     const projectYear = duration.begin.getFullYear();
     const endYear = duration.end?.getFullYear() ?? new Date().getFullYear();
+
     return projectYear <= year && endYear >= year;
   });
 ---
 
 <div class="mt-6 pt-4">
-  <h2 class="mb-6 font-semibold text-2xl text-gray-900">Experience</h2>
+  <h2 class="mb-8 font-semibold text-2xl text-gray-900">
+    Experience
+    <span class="font-normal text-base text-gray-500">({totalExperience}+ years)</span>
+  </h2>
 
-  <table class="border-collapse [&_td]:border-gray-100 [&_td]:border-t w-full">
-    <thead>
-      <tr>
-        <th class="border-gray-200 pr-6 border-r w-20"></th>
-        <th class="pl-4 text-left">
-          <div class="flex justify-between pb-2 text-gray-500 text-xs">
-            {['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'].map(month => (
-              <span>{month}</span>
-            ))}
-          </div>
-        </th>
-      </tr>
-    </thead>
-    <tbody>
-      {years.map((year) => (
-        <TimelineYear
-          year={year}
-          experience={getExperienceForYear(year)}
-        />
-      ))}
-    </tbody>
-  </table>
+  <div class="mb-4 text-center text-gray-600 text-sm">
+    Yearly capacity distribution across projects
+  </div>
+
+  <div class="relative">
+    <div class="overflow-hidden timeline-container" style="max-height: 500px;">
+      <table class="border-collapse [&_td]:border-gray-100 [&_td]:border-t w-full">
+        <thead>
+          <tr>
+            <th class="border-gray-200 pr-6 border-r w-20"></th>
+            <th class="pl-4 text-left">
+              <div class="flex justify-between pb-2 text-gray-500 text-xs">
+                {[0, 25, 50, 75, 100].map(percent => (
+                  <span>{percent}%</span>
+                ))}
+              </div>
+            </th>
+          </tr>
+        </thead>
+        <tbody class="[&_tr]:align-top timeline-body">
+          {years.map((year, index) => (
+            <TimelineYear
+              year={year}
+              experience={getExperienceForYear(year)}
+              class={index >= 5 ? 'hidden expanded-row' : ''}
+            />
+          ))}
+        </tbody>
+      </table>
+    </div>
+
+    <div class="right-0 bottom-0 left-0 absolute bg-gradient-to-t from-white/95 to-transparent timeline-shadow h-[200px] pointer-events-none"></div>
+
+    <button class="block relative z-10 bg-gray-100 hover:bg-gray-200 mx-auto mt-4 px-6 py-2 rounded-full text-gray-600 text-sm transition-colors expand-button">
+      Show more
+    </button>
+  </div>
 </div>
 
 <script>
-  document.querySelectorAll('.project-bar').forEach(bar => {
-    bar.addEventListener('click', () => {
-      const details = bar.getAttribute('data-details');
-      // Możesz tutaj użyć własnej implementacji modala/tooltipa
-      alert(details);
+  const expandButton = document.querySelector('.expand-button');
+  const timelineShadow = document.querySelector('.timeline-shadow');
+  let isExpanded = false;
+
+  expandButton?.addEventListener('click', () => {
+    isExpanded = !isExpanded;
+    document.querySelectorAll('.expanded-row').forEach(row => {
+      row.classList.toggle('hidden');
     });
+
+    const container = document.querySelector('.timeline-container');
+
+    if (container instanceof HTMLElement) {
+      if (isExpanded) {
+        container.style.maxHeight = container.scrollHeight + 'px';
+      } else {
+        container.style.maxHeight = '500px';
+      }
+    }
+
+    if (expandButton instanceof HTMLElement) {
+      expandButton.textContent = isExpanded ? 'Show less' : 'Show more';
+    }
+
+    if (timelineShadow instanceof HTMLElement) {
+      timelineShadow.classList.toggle('hidden', isExpanded);
+    }
   });
+
+  if (document.querySelectorAll('.expanded-row').length > 0) {
+    timelineShadow?.classList.remove('hidden');
+  }
 </script>

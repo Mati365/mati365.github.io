@@ -1,0 +1,32 @@
+---
+import type { ExperienceItem } from './types';
+
+interface Props {
+  experience: ExperienceItem;
+}
+
+const { experience } = Astro.props;
+const { company } = experience;
+const { color } = company;
+---
+
+<div
+  class="hover:z-10 flex items-center border-gray-200 hover:border-[var(--hover-border)] hover:bg-[var(--hover-bg)] p-1.5 border rounded-lg h-8 transition-all cursor-pointer hover:scale-[1.02] project-bar"
+  data-details={company.name}
+  style={{
+    '--hover-bg': `${color.primary}1A`,
+    '--hover-border': color.primary
+  }}
+>
+  <div class="inset-0 flex items-center gap-2 px-1">
+    <img
+      src={company.logo}
+      alt={`${company.name} logo`}
+      class="w-5 max-w-full h-auto object-contain"
+      loading="lazy"
+    />
+    <span class="font-medium text-gray-600 text-xs truncate">
+      {company.name}
+    </span>
+  </div>
+</div>

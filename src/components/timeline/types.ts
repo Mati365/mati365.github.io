@@ -18,6 +18,7 @@ export interface ExperienceItem {
     end: Date | null;
   };
   details: string;
+  fullTime: boolean;
   items?: string[];
   projects?: string[];
   color?: string;

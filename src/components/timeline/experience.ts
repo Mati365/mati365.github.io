@@ -38,7 +38,8 @@ export const COMPANIES: ExperienceItem[] = [
       "Adding search-as-you-type function to editor.",
       "Working with AI editor integration. Adding support for Chat GPT AI LLM support",
       "Extending Operational Transformation core diffing algorithm."
-    ]
+    ],
+    fullTime: true,
   },
   {
     title: "DevOpts / Senior Fullstack Engineer",
@@ -60,8 +61,8 @@ export const COMPANIES: ExperienceItem[] = [
       "Design backend / frontend / infra architecture for new projects",
       "Monadic / functional backend modules design",
       "Implementation of Contentful / JIRA / Storyblok integrations",
-      // ... rest of the items
-    ]
+    ],
+    fullTime: true,
   },
   {
     title: "DevOpts / Senior Fullstack Engineer",
@@ -86,7 +87,8 @@ export const COMPANIES: ExperienceItem[] = [
       "Create and integrate deployment with Github CI",
       "Rabbitmq, nftables firewall management",
       "create storyblok CMS integration with live-preview"
-    ]
+    ],
+    fullTime: false,
   },
   {
     title: "Senior Frontend Developer",
@@ -103,7 +105,8 @@ export const COMPANIES: ExperienceItem[] = [
       begin: parseDate("01.11.2022"),
       end: parseDate("01.09.2023")
     },
-    details: "Mostly part-time job with improving site code quality"
+    details: "Mostly part-time job with improving site code quality",
+    fullTime: false,
   },
   {
     title: "Ruby on Rails / Fullstack developer",
@@ -127,7 +130,8 @@ export const COMPANIES: ExperienceItem[] = [
       "Elasticsearch / Postgres / Redis",
       "CDK / ECS / EC2 management",
       "GTM / GA4 / Universal Tracker"
-    ]
+    ],
+    fullTime: false,
   },
   {
     title: "Senior Frontend Developer",
@@ -150,7 +154,8 @@ export const COMPANIES: ExperienceItem[] = [
       "Introduce lazy hydration integrated with SPA application",
       "Lighthouse SEO optimizations",
       "Boost overall site performance"
-    ]
+    ],
+    fullTime: false,
   },
   {
     title: "Senior Frontend Developer",
@@ -173,7 +178,8 @@ export const COMPANIES: ExperienceItem[] = [
       "CMS Contentful integration",
       "Automatic generate sitemap based on CMS Contentful modifications",
       "Jest / Cypress E2E testing"
-    ]
+    ],
+    fullTime: true,
   },
   {
     title: "Senior Fullstack Web Developer",
@@ -196,7 +202,8 @@ export const COMPANIES: ExperienceItem[] = [
       "Meticulous unit testing all created components",
       "Integration of React components with Magento",
       "Creating internal content management system"
-    ]
+    ],
+    fullTime: true,
   },
   {
     title: "RoR / Full Stack Engineer",
@@ -220,7 +227,8 @@ export const COMPANIES: ExperienceItem[] = [
       "Creating Adserver implementations",
       "SEO Optimizations",
       "Lerna / monorepo app optimizations"
-    ]
+    ],
+    fullTime: true,
   },
   {
     title: "Fullstack Python Developer",
@@ -237,7 +245,8 @@ export const COMPANIES: ExperienceItem[] = [
       begin: parseDate("01.11.2015"),
       end: parseDate("31.12.2016")
     },
-    details: "Programming backend and frontend using ES6, JavaScript 1.7, Python Django and Vue.JS."
+    details: "Programming backend and frontend using ES6, JavaScript 1.7, Python Django and Vue.JS.",
+    fullTime: false,
   },
   {
     title: "PHP / Frontend Engineer",
@@ -263,6 +272,7 @@ export const COMPANIES: ExperienceItem[] = [
       "- promocje.smaker.pl",
       "- couporando.pl",
       "Implement PHP/CSS/JS page partials in legacy code, tracking implementation and fixes"
-    ]
+    ],
+    fullTime: false,
   }
 ];
