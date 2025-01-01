@@ -1,48 +1,6 @@
 ---
-import ckLogo from '~/assets/companies/cksource.png';
-
 import TimelineYear from './timeline-year.astro';
-import type { ExperienceItem } from './types';
-
-function parseDate(date: string): Date {
-  if (date === 'present') return new Date();
-  const [day, month, year] = date.split('.').map(Number);
-  return new Date(year, month - 1, day);
-}
-
-const companies = [
-  {
-    title: "Senior Fullstack Engineer",
-    company: {
-      name: 'CKSource',
-      logo: ckLogo.src,
-      color: {
-        primary: '#771bff',
-        background: '#771bff',
-        text: '#ffffff'
-      }
-    },
-    duration: {
-      begin: parseDate("01.02.2024"),
-      end: null
-    },
-    details: "Contributing to CKEditor 5...",
-    items: [
-      "Fixing accessibility A11y WCAG issues...",
-      // ... more items
-    ],
-    color: "#771bff" // purple
-  },
-  // Przykład jak zmienić kolory dla innych firm:
-  // {
-  //   ...
-  //   color: "#f97316" // orange
-  // },
-  // {
-  //   ...
-  //   color: "#a855f7" // purple
-  // }
-] as ExperienceItem[];
+import { COMPANIES } from './experience';
 
 const years = Array.from(
   { length: 10 },
@@ -50,7 +8,7 @@ const years = Array.from(
 ).reverse();
 
 const getExperienceForYear = (year: number) =>
-  companies.filter(({ duration }) => {
+  COMPANIES.filter(({ duration }) => {
     const projectYear = duration.begin.getFullYear();
     const endYear = duration.end?.getFullYear() ?? new Date().getFullYear();
     return projectYear <= year && endYear >= year;
