@@ -3,6 +3,7 @@ import Sidebar from '~/components/about-me/sidebar.astro';
 import DefaultLayout from '../layouts/default-layout.astro';
 import Timeline from '~/components/timeline/timeline.astro';
 import AboutMe from '~/components/about-me/about-me.astro';
+import CatReview from '~/components/testimonials/cat-review.astro';
 ---
 
 <DefaultLayout
@@ -14,6 +15,9 @@ import AboutMe from '~/components/about-me/about-me.astro';
 
 		<div class="flex-1">
 			<AboutMe />
+			<hr class="mx-auto max-w-96" />
+			<CatReview />
+			<hr class="mx-auto max-w-96" />
 			<Timeline />
 		</div>
 	</div>
