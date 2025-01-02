@@ -60,13 +60,19 @@ export const COMPANIES: ExperienceItem[] = [
     },
     details: "Contributing to CKEditor 5, one of the most popular open-source text editor in the world.",
     items: [
-      "Fixing accessibility A11y WCAG issues reported by governments clients such like Australian Government, United Kingdom Government.",
-      "Fixing editor issues reported by companies such as Disney, Volvo, Microsoft, Siemens, Unicef, AT&T",
-      "Open Source contributions and discussions with community.",
-      "Maintenance React CKEditor integrations",
-      "Adding search-as-you-type function to editor.",
-      "Working with AI editor integration. Adding support for Chat GPT AI LLM support",
-      "Extending Operational Transformation core diffing algorithm."
+      "Resolved critical issues for high-profile clients including CNN, Disney, Volvo, Microsoft, Siemens, UNICEF, Epic, and AT&T",
+      "Enhanced accessibility by addressing A11y WCAG issues for government clients such as the Australian and UK Governments",
+      "Implemented SoC 2 security patches to ensure robust security compliance",
+      "Developed and enforced ESLint rules, integrating custom TS-Morph analysis into the CI build process",
+      "Maintained and improved CKEditor integrations for React, Angular, and Vue, including refactoring initialization mechanisms and resolving race conditions",
+      "Actively contributed to open-source projects and engaged with the community",
+      "Integrated AI capabilities into the editor",
+      "Extended the core diffing algorithm of the Operational Transformation framework",
+      "Enhanced clipboard support for tables",
+      "Implemented search-as-you-type functionality",
+      "Developed reusable UI components, such as dropdowns, for various integrations",
+      "Improved the editor model AST copy & paste functionality",
+      "Upgraded accessibility features, ensuring WCAG VPAT compliance across major parts of the editor"
     ],
     fullTime: true,
   },
@@ -87,9 +93,21 @@ export const COMPANIES: ExperienceItem[] = [
     },
     details: "Create many projects for company clients and manage their own products.",
     items: [
-      "Design backend / frontend / infra architecture for new projects",
-      "Monadic / functional backend modules design",
-      "Implementation of Contentful / JIRA / Storyblok integrations",
+      "Lead project coordination and development",
+      "Designed backend, frontend, and infrastructure architecture for new projects (mostly hexagonal, serverless - AWS Lambda)",
+      "Designed and implemented monadic functional backend modules using a ZIO-like approach with fp-ts, io-ts, and kysely",
+      "Implemented Contentful, JIRA, Storyblok, Sendgrid, Brevo, Piwik, and ActiveCampaign backend/frontend CMS integrations",
+      "Set up deployments and infrastructure in AWS CDK, ECS, EC2, Lambda, Cognito, CloudFront, S3, VPC, Route53",
+      "Set up CI and infrastructure for Ansible, Vagrant, Podman Quadlet, SystemD, MicroOS, and Linux projects",
+      "Configured nftables firewall and Linux on simple Debian 12 servers",
+      "Set up and implemented an aggregated search engine using AWS OpenSearch/Elasticsearch",
+      "Created zero-downtime reindexing for Elasticsearch engine with facets aggregation system",
+      "Developed dynamic aggregations fuzzy search conditions builder using AST approach",
+      "Designed architecture and implemented new CMS systems",
+      "Integrated Turbo Monorepo, D3, Playwright, React, Jest, Next.js, Nest.js, Marble.js, and GraphQL",
+      "Conducted E2E testing with Playwright and Jest",
+      "Created and optimized Podman/Docker and GitHub CI",
+      "Worked with GA4, GTM, and Piwik under ISO27001 jurisdiction"
     ],
     fullTime: true,
   },
@@ -110,12 +128,16 @@ export const COMPANIES: ExperienceItem[] = [
     },
     details: "Create site management dashboard, Hetzner / OVH infrastructure and frontend application storyblok CMS integration.",
     items: [
-      "OVH / Hertzner cloud infra management (Podman Quadlet, Linux)",
-      "Wood selling SPA site in React / Ramda / TypeScript / Nest.JS",
-      "Government wood related projects",
-      "Create and integrate deployment with Github CI",
-      "Rabbitmq, nftables firewall management",
-      "create storyblok CMS integration with live-preview"
+      "Implemented infrastructure and achieved sub-1-minute deployment for Dockerized Java and Node applications",
+      "Managed cloud infrastructure on OVH and Hetzner using Podman Quadlet and Linux",
+      "Developed a single-page application for wood selling using React, Ramda, TypeScript, NestJS, Node, and TypeORM",
+      "Worked on government projects related to environmental protection (Główny Inspektorat Ochrony Środowiska)",
+      "Created and integrated Docker mono-repo app deployments with GitHub CI",
+      "Performed DevOps tasks including Dockerizing applications, creating end-to-end tests, and setting up UAT environments",
+      "Managed RabbitMQ and firewalls using nftables",
+      "Set up dynamic deployments on staging environments using Docker Swarm, Ansible, Traefik, and GitHub pipelines in OVH cloud",
+      "Integrated Storyblok CMS with live-preview in a legacy codebase",
+      "Handled recovery and rollback tasks"
     ],
     fullTime: false,
   },
@@ -158,7 +180,8 @@ export const COMPANIES: ExperienceItem[] = [
       "React / Vanilla.js",
       "Elasticsearch / Postgres / Redis",
       "CDK / ECS / EC2 management",
-      "GTM / GA4 / Universal Tracker"
+      "GTM / GA4 / Universal Tracker",
+      "Managed AWS EC2 and Cloudflare"
     ],
     fullTime: false,
   },
@@ -179,10 +202,11 @@ export const COMPANIES: ExperienceItem[] = [
     },
     details: "Refactor internal SSR rendring mechanism, speeding up products grid loading",
     items: [
-      "Part-time task to help with speeding up site and SEO optimizations",
-      "Introduce lazy hydration integrated with SPA application",
-      "Lighthouse SEO optimizations",
-      "Boost overall site performance"
+      "Part-time task to help with speeding up the site and SEO optimizations using React, Jest, Node, and Redis",
+      "Introduced lazy hydration integrated with the SPA application",
+      "Implemented a new approach to perform async SSR with support for Redis, IndexedDB, and memory cache",
+      "Conducted Lighthouse SEO optimizations",
+      "Boosted overall site performance"
     ],
     fullTime: false,
   },
@@ -227,10 +251,11 @@ export const COMPANIES: ExperienceItem[] = [
     },
     details: "Customer Experience Team Leader. Maintain websites of the largest clothes shops in Poland.",
     items: [
-      "Creating advanced multi-step return/complaint product creator",
-      "Meticulous unit testing all created components",
-      "Integration of React components with Magento",
-      "Creating internal content management system"
+      "Created an advanced multi-step return/complaint product creator, used by millions of users across all LPP markets",
+      "Conducted meticulous unit testing of all created components",
+      "Integrated React components with Magento",
+      "Developed an internal content management system",
+      "Implemented a fuzzy campaign product targeting system for major brands in Poland (Reserved, House, Mohito, Cropp)"
     ],
     fullTime: true,
   },
@@ -251,11 +276,20 @@ export const COMPANIES: ExperienceItem[] = [
     },
     details: "Lead frontend development of Interia Adretail applications.",
     items: [
-      "Create and maintain Interia.pl layout partials",
-      "Development JS components on the biggest e-paper websites in Poland",
-      "Creating Adserver implementations",
-      "SEO Optimizations",
-      "Lerna / monorepo app optimizations"
+      "Created and maintained Interia.pl layout partials",
+      "Developed and maintained JS components on major e-paper websites in Poland such as Promocyjni, Okazjum, Promoceny, Ding, Adretail, and widgets on Interia.pl",
+      "Created and maintained internal Interia.pl web panels",
+      "Implemented Adserver integrations (Prebid, Criteo, Google Ads, Adocean), including ad creation and tracking",
+      "Integrated reusable React components on third-party websites using Adserver",
+      "Created a reusable Leaflet reader component",
+      "Developed SPA polymorphic microservice-based apps with Redis and GraphQL integration",
+      "Conducted SEO optimizations, including creating an automated sitemap generation system",
+      "Implemented a fast GraphQL cached client with batching, client cache, and Redis support",
+      "Created a fast external React partial prerendering system to introduce SEO-optimized components on several websites",
+      "Performed Lerna/monorepo app optimizations",
+      "Used Node.js, React, Redux, CoffeeScript, GraphQL (Apollo), Angular, ES6/7/8",
+      "Worked with Google Tag Manager, GPT, Gulp/Webpack, Adocean, JSS",
+      "Applied Functional Programming using Ramda, Ramda Fantasy, RX, and Rails"
     ],
     fullTime: true,
   },
@@ -276,6 +310,10 @@ export const COMPANIES: ExperienceItem[] = [
     },
     details: "Programming backend and frontend using ES6, JavaScript 1.7, Python Django and Vue.JS.",
     fullTime: false,
+    items: [
+      "Maintain Guidebase.com in Angular 1.x, JQuery.",
+      "Simple BMW presentation for self driving car - Angular 1.x with IE 10 support.",
+    ]
   },
   {
     title: "PHP / Frontend Engineer",

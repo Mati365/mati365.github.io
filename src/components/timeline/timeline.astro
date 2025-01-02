@@ -1,6 +1,6 @@
 ---
+import { COMPANIES } from '~/data/experience';
 import TimelineYear from './timeline-year.astro';
-import { COMPANIES } from './experience';
 
 const oldestYear = Math.min(...COMPANIES.map(company => company.duration.begin.getFullYear()));
 const years = Array.from(
