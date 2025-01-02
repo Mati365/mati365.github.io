@@ -55,7 +55,7 @@ export const COMPANIES: ExperienceItem[] = [
       }
     },
     duration: {
-      begin: parseDate("01.02.2023"),
+      begin: parseDate("01.02.2024"),
       end: null
     },
     details: "Contributing to CKEditor 5, one of the most popular open-source text editor in the world.",
