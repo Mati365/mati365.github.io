@@ -1,0 +1,92 @@
+---
+interface Props {
+  maxHeight?: number;
+  id?: string;
+}
+
+const { id, maxHeight = 500 } = Astro.props;
+---
+
+<div class="expandable-section" id={id}>
+  <div class="relative expandable-container">
+    <div
+      class="content-container transition-all duration-300 overflow-x-auto overflow-y-hidden"
+      style={`max-height: ${maxHeight}px`}
+    >
+      <slot />
+    </div>
+
+    <div class="right-0 bottom-0 left-0 absolute bg-gradient-to-t from-white/95 to-transparent fade-shadow h-[200px] pointer-events-none"></div>
+  </div>
+
+  <button class="block relative z-10 hidden bg-gray-100 hover:bg-gray-200 mx-auto mt-4 px-6 py-2 rounded-full text-gray-600 text-sm transition-colors expand-button">
+    Show more
+  </button>
+</div>
+
+<script>
+  class ExpandableSection {
+    private section: HTMLElement;
+    private button: HTMLButtonElement;
+    private container: HTMLElement;
+    private fadeElement: HTMLElement;
+    private expanded: boolean;
+
+    constructor(section: HTMLElement) {
+      this.section = section;
+      this.button = section.querySelector('.expand-button') as HTMLButtonElement;
+      this.container = section.querySelector('.content-container') as HTMLElement;
+      this.fadeElement = section.querySelector('.fade-shadow') as HTMLElement;
+      this.expanded = false;
+
+      this.init();
+    }
+
+    private init(): void {
+      const hasHiddenItems = this.section.querySelectorAll('.expanded-item').length > 0;
+      const containerHeight = this.container.scrollHeight;
+      const maxHeight = parseInt(this.container.style.maxHeight);
+
+      if (hasHiddenItems || containerHeight > maxHeight) {
+        this.button.classList.remove('hidden');
+        this.fadeElement.classList.remove('hidden');
+      } else {
+        this.button.classList.add('hidden');
+        this.fadeElement.classList.add('hidden');
+        return;
+      }
+
+      this.button.addEventListener('click', () => this.toggle());
+    }
+
+    private toggle(): void {
+      this.expanded = !this.expanded;
+
+      if (this.expanded) {
+        this.container.style.maxHeight = `${this.container.scrollHeight}px`;
+
+        this.button.textContent = 'Show less';
+        this.button.classList.add('expanded');
+
+        this.fadeElement.classList.add('hidden');
+      } else {
+        this.container.style.maxHeight = `${this.section.dataset.maxHeight || '500'}px`;
+
+        this.button.textContent = 'Show more';
+        this.button.classList.remove('expanded');
+
+        this.fadeElement.classList.remove('hidden');
+      }
+
+      this.section.querySelectorAll<HTMLElement>('.expanded-item').forEach(item => {
+        item.classList.toggle('hidden', !this.expanded);
+      });
+    }
+  }
+
+  document.addEventListener('DOMContentLoaded', () => {
+    document.querySelectorAll<HTMLElement>('.expandable-section').forEach(section => {
+      new ExpandableSection(section);
+    });
+  });
+</script>

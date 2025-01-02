@@ -1,0 +1,117 @@
+---
+import type { ExperienceItem } from "~/data/types";
+import { ChevronDown, ChevronUp } from "lucide-astro";
+
+interface Props {
+  job: ExperienceItem;
+  class?: string;
+}
+
+const { job, class: className } = Astro.props;
+const ITEMS_THRESHOLD = 5;
+const hasHiddenItems = job.items && job.items.length > ITEMS_THRESHOLD;
+
+function formatDate(date: Date | null): string {
+  if (!date) return 'Present';
+  return date.toLocaleDateString('en-US', { month: 'short', year: 'numeric' });
+}
+---
+
+<article id={job.slug} class:list={["border-gray-100 last:border-0 mb-8 pb-8 border-b", className]}>
+  <header class="flex items-start gap-4 mb-4">
+    {job.company.logo && (
+      <img
+        src={job.company.logo}
+        alt={`${job.company.name} logo`}
+        class="rounded w-12 h-12 object-contain"
+      />
+    )}
+    <div>
+      <h3 class="font-semibold text-gray-900 text-xl">{job.title}</h3>
+      <div class="text-gray-700 text-lg">{job.company.name}</div>
+      <div class="text-gray-500 text-sm">
+        {formatDate(job.duration.begin)} - {formatDate(job.duration.end)}
+        {job.fullTime ? ' · Full-time' : ' · Part-time'}
+      </div>
+    </div>
+  </header>
+
+  <div class="mb-4 text-base text-gray-700">
+    {job.details && <p>{job.details}</p>}
+  </div>
+
+  {job.items && job.items.length > 0 && (
+    <div class="job-items-container">
+      <ul class="space-y-2 mb-4 text-gray-700 list-disc list-inside">
+        {job.items.map((item, index) => (
+          <li class:list={[
+            "pl-2",
+            index >= ITEMS_THRESHOLD && "hidden job-item-expandable"
+          ]}>
+            {item}
+          </li>
+        ))}
+      </ul>
+
+      {hasHiddenItems && (
+        <div class="flex justify-center">
+          <button class="inline-flex items-center gap-1 mt-1 mb-6 px-4 py-1.5 rounded-full text-indigo-600 text-sm hover:text-indigo-800 transition-colors job-expand-btn">
+            <span class="expand-text">Show more</span>
+            <ChevronDown class="w-4 h-4 expand-icon" />
+            <ChevronUp class="hidden w-4 h-4 collapse-icon" />
+          </button>
+        </div>
+      )}
+    </div>
+  )}
+
+  {job.tags && (
+    <div class="flex flex-wrap gap-2">
+      {job.tags.map(tag => (
+        <span class="bg-gray-100 px-3 py-1 rounded-full text-gray-600 text-sm">
+          {tag}
+        </span>
+      ))}
+    </div>
+  )}
+</article>
+
+<script>
+  class JobExpander {
+    private button: HTMLButtonElement | null;
+    private items: NodeListOf<HTMLElement>;
+    private expanded = false;
+
+    constructor(container: HTMLElement) {
+      this.button = container.querySelector('.job-expand-btn');
+      this.items = container.querySelectorAll('.job-item-expandable');
+
+      if (this.button) {
+        this.button.addEventListener('click', () => this.toggle());
+      }
+    }
+
+    private toggle() {
+      if (!this.button) {
+        return;
+      }
+
+      this.expanded = !this.expanded;
+      this.items.forEach(item => item.classList.toggle('hidden'));
+
+      const text = this.button.querySelector('.expand-text')!;
+      const expandIcon = this.button.querySelector('.expand-icon')!;
+      const collapseIcon = this.button.querySelector('.collapse-icon')!;
+
+      text.textContent = this.expanded ? 'Show less' : 'Show more';
+      expandIcon.classList.toggle('hidden');
+      collapseIcon.classList.toggle('hidden');
+    }
+  }
+
+  document.addEventListener('DOMContentLoaded', () => {
+    document.querySelectorAll('.job-items-container').forEach(container => {
+      new JobExpander(container as HTMLElement);
+    });
+  });
+</script>

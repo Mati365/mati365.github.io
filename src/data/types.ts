@@ -11,6 +11,7 @@ export interface Company {
 }
 
 export interface ExperienceItem {
+  slug: string;
   title: string;
   company: Company;
   duration: {
@@ -22,4 +23,5 @@ export interface ExperienceItem {
   items?: string[];
   projects?: string[];
   color?: string;
+  tags?: string[];
 }

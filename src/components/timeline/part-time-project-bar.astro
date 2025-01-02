@@ -11,8 +11,9 @@ const { color } = company;
 ---
 
 <div
-  class="hover:z-10 flex items-center border-gray-200 hover:border-[var(--hover-border)] hover:bg-[var(--hover-bg)] p-1.5 border rounded-lg h-8 transition-all cursor-pointer hover:scale-[1.02] project-bar"
+  class="hover:z-10 flex items-center border-gray-200 hover:border-[var(--hover-border)] hover:bg-[var(--hover-bg)] p-1.5 border rounded-lg h-8 transition-all cursor-pointer hover:scale-[1.02] project-part-time-bar"
   data-details={company.name}
+  data-slug={experience.slug}
   style={{
     '--hover-bg': `${color.primary}1A`,
     '--hover-border': color.primary
@@ -30,3 +31,16 @@ const { color } = company;
     </span>
   </div>
 </div>
+
+<script>
+  import { scrollToExperienceItem } from './helpers';
+
+  document.querySelectorAll('.project-part-time-bar').forEach(bar => {
+    bar.addEventListener('click', () => {
+      const slug = bar.getAttribute('data-slug');
+      if (slug) {
+        scrollToExperienceItem(slug);
+      }
+    });
+  });
+</script>

@@ -16,34 +16,7 @@ import type { ExperienceItem } from "./types";
 
 export const COMPANIES: ExperienceItem[] = [
   {
-    title: "Senior Fullstack Engineer",
-    company: {
-      name: 'Dashhub',
-      logo: dashhubLogo.src,
-      color: {
-        primary: '#808080',
-        background: '#808080',
-        text: '#ffffff'
-      },
-    },
-    duration: {
-      begin: parseDate("01.08.2024"),
-      end: null
-    },
-    fullTime: false,
-    details: "Creating AI search engine powered by Elasticsearch kNN cosine vector similarity comparisons, embeddings analyze, contexual augmentation.",
-    items: [
-      "Created RAG AI search engine powered by Elasticsearch kNN cosine vector similarity comparisons, embeddings analyze, contexual augmentation",
-      "Developed a Red Hat Enterprise Linux compatible infrastructure using AlmaLinux 9, automatically configured with Ansible and Pulumi, and hosted on Hetzner Cloud with Cloudflare integration.",
-      "Ensured high security standards by enforcing strict SELinux policies for containerized environments, implementing robust Nftables firewall configurations, and automating system upgrades. Utilized a rootless Podman setup with systemd-proxyd for filesystem protection.",
-      "Configure fail2ban ruleset to automatic ban suspicious traffic.",
-      "Set up and configured essential services including Elasticsearch, MinIO, PostgreSQL, NGINX, SystemD, and Podman Quadlet.",
-      "Implemented a rapid deployment and rollback solution (under 1 minute) for a monorepo of applications.",
-      "Developed backend, frontend, and API applications in TypeScript, following a hexagonal architecture pattern, utilizing Tsyringe for dependency injection, Kysely for database interactions, and React for the frontend.",
-      "Directus self-hosted CMS installation and Astro integration."
-    ],
-  },
-  {
+    slug: 'cksource',
     title: "Senior Fullstack Engineer",
     company: {
       name: 'CKSource',
@@ -75,8 +48,40 @@ export const COMPANIES: ExperienceItem[] = [
       "Upgraded accessibility features, ensuring WCAG VPAT compliance across major parts of the editor"
     ],
     fullTime: true,
+    tags: ['TypeScript', 'React', 'Angular', 'Vue', 'ESLint', 'A11y', 'WCAG', 'CKEditor'],
   },
   {
+    slug: 'dashhub',
+    title: "Senior Fullstack Engineer",
+    company: {
+      name: 'Dashhub',
+      logo: dashhubLogo.src,
+      color: {
+        primary: '#808080',
+        background: '#808080',
+        text: '#ffffff'
+      },
+    },
+    duration: {
+      begin: parseDate("01.08.2024"),
+      end: null
+    },
+    fullTime: false,
+    details: "Creating AI search engine powered by Elasticsearch kNN cosine vector similarity comparisons, embeddings analyze, contexual augmentation.",
+    items: [
+      "Created RAG AI search engine powered by Elasticsearch kNN cosine vector similarity comparisons, embeddings analyze, contexual augmentation",
+      "Developed a Red Hat Enterprise Linux compatible infrastructure using AlmaLinux 9, automatically configured with Ansible and Pulumi, and hosted on Hetzner Cloud with Cloudflare integration.",
+      "Ensured high security standards by enforcing strict SELinux policies for containerized environments, implementing robust Nftables firewall configurations, and automating system upgrades. Utilized a rootless Podman setup with systemd-proxyd for filesystem protection.",
+      "Configure fail2ban ruleset to automatic ban suspicious traffic.",
+      "Set up and configured essential services including Elasticsearch, MinIO, PostgreSQL, NGINX, SystemD, and Podman Quadlet.",
+      "Implemented a rapid deployment and rollback solution (under 1 minute) for a monorepo of applications.",
+      "Developed backend, frontend, and API applications in TypeScript, following a hexagonal architecture pattern, utilizing Tsyringe for dependency injection, Kysely for database interactions, and React for the frontend.",
+      "Directus self-hosted CMS installation and Astro integration."
+    ],
+    tags: ['TypeScript', 'Elasticsearch', 'React', 'AlmaLinux', 'Ansible', 'Pulumi', 'SELinux', 'Podman', 'PostgreSQL', 'MinIO', 'NGINX', 'SystemD', 'Astro'],
+  },
+  {
+    slug: 'bright-it',
     title: "DevOpts / Senior Fullstack Engineer",
     company: {
       name: 'Bright IT',
@@ -110,8 +115,10 @@ export const COMPANIES: ExperienceItem[] = [
       "Worked with GA4, GTM, and Piwik under ISO27001 jurisdiction"
     ],
     fullTime: true,
+    tags: ['TypeScript', 'AWS', 'Lambda', 'React', 'Next.js', 'Nest.js', 'GraphQL', 'Elasticsearch', 'Docker', 'Podman', 'Ansible'],
   },
   {
+    slug: 'onliwood',
     title: "DevOpts / Senior Fullstack Engineer",
     company: {
       name: 'Onliwood',
@@ -140,8 +147,10 @@ export const COMPANIES: ExperienceItem[] = [
       "Handled recovery and rollback tasks"
     ],
     fullTime: false,
+    tags: ['TypeScript', 'React', 'Node.js', 'NestJS', 'Docker', 'Podman', 'RabbitMQ', 'Ansible', 'Traefik'],
   },
   {
+    slug: 'hoqus',
     title: "Senior Frontend Developer",
     company: {
       name: 'Hoqus',
@@ -158,8 +167,10 @@ export const COMPANIES: ExperienceItem[] = [
     },
     details: "Mostly part-time job with improving site code quality",
     fullTime: false,
+    tags: ['TypeScript', 'React'],
   },
   {
+    slug: 'productz',
     title: "Ruby on Rails / Fullstack developer",
     company: {
       name: 'Productz.com',
@@ -184,8 +195,10 @@ export const COMPANIES: ExperienceItem[] = [
       "Managed AWS EC2 and Cloudflare"
     ],
     fullTime: false,
+    tags: ['Ruby on Rails', 'Node.js', 'React', 'Elasticsearch', 'PostgreSQL', 'Redis', 'AWS'],
   },
   {
+    slug: 'answear',
     title: "Senior Frontend Developer",
     company: {
       name: 'Answear.com',
@@ -209,8 +222,10 @@ export const COMPANIES: ExperienceItem[] = [
       "Boosted overall site performance"
     ],
     fullTime: false,
+    tags: ['React', 'Node.js', 'Redis', 'SSR', 'Jest'],
   },
   {
+    slug: 'bytamic',
     title: "Senior Frontend Developer",
     company: {
       name: 'Bytamic / Liiva',
@@ -233,8 +248,10 @@ export const COMPANIES: ExperienceItem[] = [
       "Jest / Cypress E2E testing"
     ],
     fullTime: true,
+    tags: ['React', 'Next.js', 'SCSS', 'Jest', 'Cypress', 'Contentful'],
   },
   {
+    slug: 'silky-coders',
     title: "Senior Fullstack Web Developer",
     company: {
       name: 'Silky Coders',
@@ -258,8 +275,10 @@ export const COMPANIES: ExperienceItem[] = [
       "Implemented a fuzzy campaign product targeting system for major brands in Poland (Reserved, House, Mohito, Cropp)"
     ],
     fullTime: true,
+    tags: ['React', 'Magento', 'Unit Testing'],
   },
   {
+    slug: 'interia',
     title: "RoR / Full Stack Engineer",
     company: {
       name: 'Interia.pl',
@@ -292,8 +311,10 @@ export const COMPANIES: ExperienceItem[] = [
       "Applied Functional Programming using Ramda, Ramda Fantasy, RX, and Rails"
     ],
     fullTime: true,
+    tags: ['Ruby on Rails', 'React', 'Redux', 'GraphQL', 'Redis', 'Angular', 'Node.js', 'SEO'],
   },
   {
+    slug: 'qed',
     title: "Fullstack Python Developer",
     company: {
       name: 'Quantitative Engineering Design',
@@ -313,9 +334,11 @@ export const COMPANIES: ExperienceItem[] = [
     items: [
       "Maintain Guidebase.com in Angular 1.x, JQuery.",
       "Simple BMW presentation for self driving car - Angular 1.x with IE 10 support.",
-    ]
+    ],
+    tags: ['Python', 'Django', 'Vue.js', 'Angular', 'jQuery'],
   },
   {
+    slug: 'couporando',
     title: "PHP / Frontend Engineer",
     company: {
       name: 'Couporando.pl',
@@ -341,5 +364,6 @@ export const COMPANIES: ExperienceItem[] = [
       "Implement PHP/CSS/JS page partials in legacy code, tracking implementation and fixes"
     ],
     fullTime: false,
+    tags: ['PHP', 'React', 'Node.js', 'NestJS', 'TypeORM', 'Docker', 'jQuery'],
   }
 ];

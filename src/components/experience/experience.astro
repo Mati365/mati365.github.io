@@ -1,0 +1,24 @@
+---
+import { COMPANIES } from "~/data/experience";
+import JobItem from "./job-item.astro";
+import ExpandableSection from '../shared/expandable-section.astro';
+
+const sortedCompanies = COMPANIES.sort((a, b) =>
+  (b.duration.end?.getTime() ?? Date.now()) - (a.duration.end?.getTime() ?? Date.now())
+);
+---
+
+<section class="mt-6 pt-4">
+  <h2 class="mb-8 font-semibold text-2xl text-gray-900">
+    🌟 Experience & Roles
+    <span class="font-normal text-base text-gray-500">What I did in tech?</span>
+  </h2>
+
+  <ExpandableSection maxHeight={800} id="experience-section">
+    <div class="space-y-8">
+      {sortedCompanies.map((company) => (
+        <JobItem job={company} />
+      ))}
+    </div>
+  </ExpandableSection>
+</section>

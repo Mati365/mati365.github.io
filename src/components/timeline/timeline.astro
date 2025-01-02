@@ -1,6 +1,7 @@
 ---
 import { COMPANIES } from '~/data/experience';
 import TimelineYear from './timeline-year.astro';
+import ExpandableSection from '../shared/expandable-section.astro';
 
 const oldestYear = Math.min(...COMPANIES.map(company => company.duration.begin.getFullYear()));
 const years = Array.from(
@@ -28,72 +29,28 @@ const getExperienceForYear = (year: number) =>
     Yearly capacity distribution across projects
   </div>
 
-  <div class="relative">
-    <div class="overflow-x-auto overflow-y-hidden timeline-container" style="max-height: 500px;">
-      <table class="border-collapse [&_td]:border-gray-100 [&_td]:border-t w-full min-w-[320px]">
-        <thead>
-          <tr>
-            <th class="border-gray-200 pr-3 md:pr-6 border-r w-14 md:w-20"></th>
-            <th class="pl-2 md:pl-4 text-left">
-              <div class="md:flex justify-between hidden pb-2 text-gray-500 text-xs">
-                {[0, 25, 50, 75, 100].map(percent => (
-                  <span>{percent}%</span>
-                ))}
-              </div>
-            </th>
-          </tr>
-        </thead>
-        <tbody class="[&_tr]:align-top timeline-body">
-          {years.map((year, index) => (
-            <TimelineYear
-              year={year}
-              experience={getExperienceForYear(year)}
-              class={index >= 5 ? 'hidden expanded-row' : ''}
-            />
-          ))}
-        </tbody>
-      </table>
-    </div>
-
-    <div class="right-0 bottom-0 left-0 absolute bg-gradient-to-t from-white/95 to-transparent timeline-shadow h-[200px] pointer-events-none"></div>
-
-    <button class="block relative z-10 bg-gray-100 hover:bg-gray-200 mx-auto mt-4 px-6 py-2 rounded-full text-gray-600 text-sm transition-colors expand-button">
-      Show more
-    </button>
-  </div>
+  <ExpandableSection maxHeight={500}>
+    <table class="border-collapse [&_td]:border-gray-100 [&_td]:border-t w-full min-w-[320px]">
+      <thead>
+        <tr>
+          <th class="border-gray-200 pr-3 md:pr-6 border-r w-14 md:w-20"></th>
+          <th class="pl-2 md:pl-4 text-left">
+            <div class="md:flex justify-between hidden pb-2 text-gray-500 text-xs">
+              {[0, 25, 50, 75, 100].map(percent => (
+                <span>{percent}%</span>
+              ))}
+            </div>
+          </th>
+        </tr>
+      </thead>
+      <tbody class="[&_tr]:align-top">
+        {years.map((year, index) => (
+          <TimelineYear
+            year={year}
+            experience={getExperienceForYear(year)}
+          />
+        ))}
+      </tbody>
+    </table>
+  </ExpandableSection>
 </section>
-
-<script>
-  const expandButton = document.querySelector('.expand-button');
-  const timelineShadow = document.querySelector('.timeline-shadow');
-  let isExpanded = false;
-
-  expandButton?.addEventListener('click', () => {
-    isExpanded = !isExpanded;
-    document.querySelectorAll('.expanded-row').forEach(row => {
-      row.classList.toggle('hidden');
-    });
-
-    const container = document.querySelector('.timeline-container');
-
-    if (container instanceof HTMLElement) {
-      if (isExpanded) {
-        container.style.maxHeight = container.scrollHeight + 'px';
-      } else {
-        container.style.maxHeight = '500px';
-      }
-    }
-
-    if (expandButton instanceof HTMLElement) {
-      expandButton.textContent = isExpanded ? 'Show less' : 'Show more';
-    }
-
-    if (timelineShadow instanceof HTMLElement) {
-      timelineShadow.classList.toggle('hidden', isExpanded);
-    }
-  });
-
-  if (document.querySelectorAll('.expanded-row').length > 0) {
-    timelineShadow?.classList.remove('hidden');
-  }
-</script>
