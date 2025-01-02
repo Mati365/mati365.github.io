@@ -10,10 +10,39 @@ import silkyLogo from '~/assets/companies/silky-coders.png';
 import interiaLogo from '~/assets/companies/interia.png';
 import qedLogo from '~/assets/companies/qed.png';
 import couporandoLogo from '~/assets/companies/couporando.png';
+import dashhubLogo from '~/assets/companies/dashhub.jpg';
 
 import type { ExperienceItem } from "./types";
 
 export const COMPANIES: ExperienceItem[] = [
+  {
+    title: "Senior Fullstack Engineer",
+    company: {
+      name: 'Dashhub',
+      logo: dashhubLogo.src,
+      color: {
+        primary: '#808080',
+        background: '#808080',
+        text: '#ffffff'
+      },
+    },
+    duration: {
+      begin: parseDate("01.08.2024"),
+      end: null
+    },
+    fullTime: false,
+    details: "Creating AI search engine powered by Elasticsearch kNN cosine vector similarity comparisons, embeddings analyze, contexual augmentation.",
+    items: [
+      "Created RAG AI search engine powered by Elasticsearch kNN cosine vector similarity comparisons, embeddings analyze, contexual augmentation",
+      "Developed a Red Hat Enterprise Linux compatible infrastructure using AlmaLinux 9, automatically configured with Ansible and Pulumi, and hosted on Hetzner Cloud with Cloudflare integration.",
+      "Ensured high security standards by enforcing strict SELinux policies for containerized environments, implementing robust Nftables firewall configurations, and automating system upgrades. Utilized a rootless Podman setup with systemd-proxyd for filesystem protection.",
+      "Configure fail2ban ruleset to automatic ban suspicious traffic.",
+      "Set up and configured essential services including Elasticsearch, MinIO, PostgreSQL, NGINX, SystemD, and Podman Quadlet.",
+      "Implemented a rapid deployment and rollback solution (under 1 minute) for a monorepo of applications.",
+      "Developed backend, frontend, and API applications in TypeScript, following a hexagonal architecture pattern, utilizing Tsyringe for dependency injection, Kysely for database interactions, and React for the frontend.",
+      "Directus self-hosted CMS installation and Astro integration."
+    ],
+  },
   {
     title: "Senior Fullstack Engineer",
     company: {

@@ -10,14 +10,14 @@ import CatReview from '~/components/testimonials/cat-review.astro';
 	title="Mateusz Bagiński | Dev & Stuff"
 	description="Are you seriously reading meta descriptions? Well, since you're here - I'm a software developer who writes code and occasionally remembers to document it."
 >
-	<div class="flex gap-16">
+	<div class="gap-8 lg:gap-16 grid grid-cols-1 lg:grid-cols-[auto_1fr]">
 		<Sidebar />
 
-		<div class="flex-1">
+		<div>
 			<AboutMe />
-			<hr class="mx-auto max-w-96" />
+			<hr class="mx-auto my-8 max-w-96" />
 			<CatReview />
-			<hr class="mx-auto max-w-96" />
+			<hr class="mx-auto my-8 max-w-96" />
 			<Timeline />
 		</div>
 	</div>
