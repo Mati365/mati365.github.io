@@ -1,0 +1,63 @@
+---
+import { PROJECTS } from '~/data/projects';
+import ExpandableSection from '~/components/shared/expandable-section.astro';
+
+const sortedProjects = [...PROJECTS].sort((a, b) => {
+  if (a.commercial === b.commercial) return 0;
+
+  return a.commercial ? -1 : 1;
+});
+---
+
+<section>
+  <h2 class="max-md:flex max-md:flex-col max-md:gap-2 mb-8 font-semibold text-2xl text-gray-900">
+    🕹️ Projects
+  </h2>
+
+  <ExpandableSection maxHeight={600}>
+    <div class="gap-6 grid grid-cols-1 md:grid-cols-2 md:p-2">
+      {
+        sortedProjects.map((project, index) => (
+          <a
+            href={project.href}
+            target="_blank"
+            rel="noopener noreferrer"
+            class="block relative border-gray-200 hover:border-gray-300 bg-white hover:shadow-lg border rounded-lg transition-all duration-300 overflow-hidden group hover:scale-[1.02]"
+          >
+            {project.commercial && (
+              <div class="top-3 right-3 absolute">
+                <span class="bg-indigo-800 shadow-sm px-2.5 py-1 rounded-full font-medium text-white text-xs">
+                  Commercial
+                </span>
+              </div>
+            )}
+
+            <div class="bg-gray-100 w-full overflow-hidden aspect-video">
+              {project.screenshot && (
+                <img
+                  src={project.screenshot}
+                  alt={`Screenshot of ${project.title}`}
+                  class="object-top w-full h-full object-cover"
+                  loading="lazy"
+                />
+              )}
+            </div>
+            <div class="p-6">
+              <h3 class="mb-2 font-semibold text-gray-900 text-lg tracking-tight">
+                {project.title}
+              </h3>
+              <p class="mb-4 text-gray-600 text-sm">{project.description}</p>
+              <div class="flex flex-wrap gap-2">
+                {project.tags.map((tag) => (
+                  <span class="bg-gray-100 px-2.5 py-0.5 rounded-full font-medium text-gray-800 text-xs">
+                    {tag}
+                  </span>
+                ))}
+              </div>
+            </div>
+          </a>
+        ))
+      }
+    </div>
+  </ExpandableSection>
+</section>
