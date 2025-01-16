@@ -1,12 +1,6 @@
 ---
 import { PROJECTS } from '~/data/projects';
 import ExpandableSection from '~/components/shared/expandable-section.astro';
-
-const sortedProjects = [...PROJECTS].sort((a, b) => {
-  if (a.commercial === b.commercial) return 0;
-
-  return a.commercial ? -1 : 1;
-});
 ---
 
 <section>
@@ -17,7 +11,7 @@ const sortedProjects = [...PROJECTS].sort((a, b) => {
   <ExpandableSection maxHeight={900}>
     <div class="gap-6 grid grid-cols-1 md:grid-cols-2 md:p-2">
       {
-        sortedProjects.map((project, index) => (
+        PROJECTS.map((project, index) => (
           <a
             href={project.href}
             target="_blank"

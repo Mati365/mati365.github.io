@@ -11,6 +11,8 @@ import interiaLogo from '~/assets/companies/interia.png';
 import qedLogo from '~/assets/companies/qed.png';
 import couporandoLogo from '~/assets/companies/couporando.png';
 import dashhubLogo from '~/assets/companies/dashhub.jpg';
+import umwerkLogo from '~/assets/companies/umwerk.webp';
+import myBudapesterLogo from '~/assets/companies/mybudapester.png';
 
 import type { ExperienceItem } from "./types";
 
@@ -332,8 +334,9 @@ export const COMPANIES: ExperienceItem[] = [
     details: "Programming backend and frontend using ES6, JavaScript 1.7, Python Django and Vue.JS.",
     fullTime: false,
     items: [
-      "Maintain Guidebase.com in Angular 1.x, JQuery.",
-      "Simple BMW presentation for self driving car - Angular 1.x with IE 10 support.",
+      "Working on improving the Africa Soils project, a web application for soil analysis in Africa",
+      "Making drone data analysis tools for agriculture",
+      "Programming backend and frontend using ES6, JavaScript 1.7, Python Django and Vue.JS.",
     ],
     tags: ['Python', 'Django', 'Vue.js', 'Angular', 'jQuery'],
   },
@@ -365,5 +368,54 @@ export const COMPANIES: ExperienceItem[] = [
     ],
     fullTime: false,
     tags: ['PHP', 'React', 'Node.js', 'NestJS', 'TypeORM', 'Docker', 'jQuery'],
+  },
+  {
+    slug: 'umwerk',
+    title: "Frontend Developer",
+    company: {
+      name: 'Umwerk',
+      logo: umwerkLogo.src,
+      color: {
+        primary: '#f97316',
+        background: '#f97316',
+        text: '#ffffff'
+      }
+    },
+    duration: {
+      begin: parseDate("01.10.2016"),
+      end: parseDate("31.12.2016")
+    },
+    details: "Creating simple BMW presentation for self driving car - Angular 1.x with IE 10 support.",
+    items: [
+      'Maintain Guidebase.com in Angular 1.x, JQuery.',
+      'Creating simple BMW presentation for self driving car - Angular 1.x with IE 10 support.',
+    ],
+    fullTime: false,
+    tags: ['Angular', 'jQuery'],
+  },
+  {
+    slug: 'mybudapester',
+    title: 'Fullstack Node.JS/React Developer',
+    company: {
+      name: 'MyBudapester',
+      logo: myBudapesterLogo.src,
+      color: {
+        primary: '#f97316',
+        background: '#f97316',
+        text: '#ffffff'
+      }
+    },
+    duration: {
+      begin: parseDate("01.02.2019"),
+      end: parseDate("31.09.2019")
+    },
+    details: 'Working for MyBudapester.com, the premium shoe shop in Germany.',
+    items: [
+      'Working for MyBudapester.com, the premium shoe shop in Germany.',
+      'Fixing and maintance mailing templates.',
+      'Create magento mangement panel for internal use.',
+    ],
+    fullTime: false,
+    tags: ['Node.js', 'React', 'Magento', 'PHP', 'ECommerce'],
   }
 ];

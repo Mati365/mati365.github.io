@@ -19,6 +19,15 @@ export interface Project {
 
 export const PROJECTS: Project[] = [
   {
+    title: "upolujksiazke.pl",
+    slug: "upolujksiazke",
+    screenshot: uploujksiazkeScreen.src,
+    description: "Open-source book review aggregator using React, Nest.JS and Elasticsearch for fuzzy logic book matching with collaborative filtering and bot integration.",
+    href: "https://github.com/Mati365/upolujksiazke.pl",
+    commercial: false,
+    tags: ['TypeScript', 'React', 'NestJS', 'Elasticsearch', 'Node.js']
+  },
+  {
     title: "Interreg Survey",
     slug: "interreg-survey",
     screenshot: surveysScreen.src,
@@ -53,15 +62,6 @@ export const PROJECTS: Project[] = [
     href: "https://github.com/Mati365/under-control",
     commercial: false,
     tags: ['TypeScript', 'React']
-  },
-  {
-    title: "upolujksiazke.pl",
-    slug: "upolujksiazke",
-    screenshot: uploujksiazkeScreen.src,
-    description: "Open-source book review aggregator using React, Nest.JS and Elasticsearch for fuzzy logic book matching with collaborative filtering and bot integration.",
-    href: "https://github.com/Mati365/upolujksiazke.pl",
-    commercial: false,
-    tags: ['TypeScript', 'React', 'NestJS', 'Elasticsearch', 'Node.js']
   },
   {
     title: "Podman Quadlet Ansible ARM Boilerplate",

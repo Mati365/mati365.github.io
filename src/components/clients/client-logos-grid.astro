@@ -24,13 +24,13 @@ const logos = [
 ];
 ---
 
-<div class="gap-4 grid grid-cols-2 md:grid-cols-6">
+<div class="flex flex-wrap justify-start gap-2">
   {logos.map((logo) => (
-    <div class="flex justify-center items-center p-4 border rounded-lg">
+    <div class="flex justify-center items-center p-2 border rounded-lg w-[100px]">
       <img
         src={logo.src}
         alt={logo.alt}
-        class="w-full h-full transition-all grayscale hover:grayscale-0 object-contain"
+        class="w-full h-8 transition-all grayscale hover:grayscale-0 object-contain"
         loading="lazy"
       />
     </div>
